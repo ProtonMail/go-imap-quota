@@ -140,9 +140,9 @@ func (m *MailboxRoots) Parse(fields []interface{}) error {
 }
 
 func (m *MailboxRoots) Format() (fields []interface{}) {
-	fields = append(fields, m.Name)
+	fields = append(fields, imap.Quoted(m.Name))
 	for _, root := range m.Roots {
-		fields = append(fields, root)
+		fields = append(fields, imap.Quoted(root))
 	}
 	return
 }
